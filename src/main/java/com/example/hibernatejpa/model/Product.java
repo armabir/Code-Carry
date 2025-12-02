@@ -17,5 +17,7 @@ public class Product {
     private int id;
     private String name;
 
+    @OneToMany(mappedBy = "product")
+    private List<OrderItem> orderItem;
 
 }

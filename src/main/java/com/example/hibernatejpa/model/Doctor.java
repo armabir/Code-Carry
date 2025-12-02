@@ -11,16 +11,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
+public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Course> courseList;
-
-    @OneToMany(mappedBy = "teacher")
-    private List<Subject> subjects;
+    @OneToMany(mappedBy = "doctor")
+    private List<Appointment> appointmentList;
 
 }

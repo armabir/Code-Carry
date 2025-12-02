@@ -6,21 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
+public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Course> courseList;
-
-    @OneToMany(mappedBy = "teacher")
-    private List<Subject> subjects;
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
 
 }

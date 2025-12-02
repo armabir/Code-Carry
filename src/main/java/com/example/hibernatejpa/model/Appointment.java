@@ -5,22 +5,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
+public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String reason;
+    private LocalDate localDate;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Course> courseList;
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Subject> subjects;
-
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+    
 }

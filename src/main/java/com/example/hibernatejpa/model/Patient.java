@@ -8,19 +8,19 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
+@Table(name = "patients")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
+public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Course> courseList;
+    @Embedded
+    private MedicalHistory medicalHistory;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Subject> subjects;
-
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointmentList;
 }

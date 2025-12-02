@@ -33,4 +33,8 @@ public class Student {
     @JoinColumn(name = "profile_id")
     private Profile profile;
 
+    @ManyToOne
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
+
 }

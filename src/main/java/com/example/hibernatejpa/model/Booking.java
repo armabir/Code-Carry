@@ -11,16 +11,16 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
+public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Course> courseList;
+    @OneToMany(mappedBy = "booking")
+    private List<Package> packageList;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Subject> subjects;
-
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }

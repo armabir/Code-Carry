@@ -27,4 +27,8 @@ public class Order {
             @AttributeOverride(name = "country", column = @Column(name = "shipping_country"))
     })
     private Address shippingAddress;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }
